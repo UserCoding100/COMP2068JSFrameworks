@@ -26,4 +26,5 @@ A lightweight, real-time chat application inspired by Discord. This project demo
 - **Mongoose**: Object Data Modeling (ODM) library for MongoDB.
 
 ## Project Structure
+- Visible upon opening the Grouptutorial_Discord folder
 
