@@ -19,8 +19,8 @@
       e.preventDefault();
       const username = document.getElementById('username').value.trim();
       if (username) {
-        localStorage.setItem('username', username);
-        window.location.href = '/chat';
+        localStorage.setItem('username', username); // Save username locally
+        window.location.href = '/chat'; // Redirect to chat page
       }
     });
   </script>
