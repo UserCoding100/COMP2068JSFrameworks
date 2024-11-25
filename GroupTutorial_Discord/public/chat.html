@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="chat-container">
+    <div id="channel-container">
+      <ul id="channel-list">
+        <li class="channel" data-channel="General">General</li>
+        <li class="channel" data-channel="Random">Random</li>
+      </ul>
+      <form id="create-channel-form">
+        <input type="text" id="new-channel-name" placeholder="New server name" autocomplete="off" />
+        <button type="submit">Create Server</button>
+      </form>
+    </div>
+    <div id="chat-box">
+      <div id="messages"></div>
+      <div id="typing-indicator"></div>
+      <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
