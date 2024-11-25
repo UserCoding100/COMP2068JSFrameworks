@@ -8,6 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+
 const uri = "mongodb+srv://boombeach3443:H0UuAUsepssXGXWg@cluster0.3gl7t.mongodb.net/discord_clone?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   serverApi: {
@@ -15,6 +16,8 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
   },
+  tls: true,
+  tlsAllowInvalidCertificates: true,
 });
 
 let messagesCollection;
