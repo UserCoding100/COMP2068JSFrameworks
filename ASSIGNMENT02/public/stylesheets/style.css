@@ -320,6 +320,43 @@ table th, table td {
   text-align: center;
 }
 
+/* General Button Styling */
+.table-container .button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+/* Edit Button */
+.table-container .edit-button {
+  background-color: #FFD700; /* Gold color */
+  color: #333;
+  border: 1px solid #FFC107;
+}
+
+.table-container .edit-button:hover {
+  background-color: #FFC107; /* Slightly darker gold */
+  color: #fff;
+}
+
+/* Delete Button */
+.table-container .delete-button {
+  background-color: #2a9d8f; /* Match primary color scheme */
+  color: #fff;
+  border: none;
+}
+
+.table-container .delete-button:hover {
+  background-color: #21867a; /* Darker shade for hover */
+}
+
+
 /* Chart Styles */
 .chart-container {
   margin-top: 30px;

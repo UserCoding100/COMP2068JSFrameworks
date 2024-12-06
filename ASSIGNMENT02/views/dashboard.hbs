@@ -65,9 +65,9 @@
           <td>{{this.category}}</td>
           <td>{{this.date}}</td>
           <td>
-            <a href="/dashboard/edit/{{this._id}}">Edit</a>
+            <a href="/dashboard/edit/{{this._id}}" class="button edit-button">Edit</a>
             <form action="/dashboard/delete/{{this._id}}" method="POST" style="display:inline;">
-              <button type="submit">Delete</button>
+              <button type="submit" class="button delete-button">Delete</button>
             </form>
           </td>
         </tr>
@@ -97,7 +97,7 @@
       if (result.success) {
         const { categories, amounts, monthlyTrends } = result.data;
 
-        // If no data, show "No Data" message
+        // If no data, shows "No Data" message
         if (categories.length === 0) {
           document.getElementById('no-data-message').style.display = 'block';
           return;
