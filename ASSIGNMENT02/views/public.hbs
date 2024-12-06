@@ -1,0 +1,36 @@
+{{> header}}
+
+<div class="container">
+  <h1>Public Expenses</h1>
+  <p>This is a read-only view of all expenses in the database. No edits or deletions are allowed.</p>
+
+  <!-- Expense Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each expenses}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>${{this.amount}}</td>
+          <td>{{this.category}}</td>
+          <td>{{this.date}}</td>
+        </tr>
+        {{else}}
+        <tr>
+          <td colspan="4">No expenses found.</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{> footer}}

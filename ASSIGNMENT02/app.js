@@ -59,11 +59,13 @@ app.use((req, res, next) => {
 // Routes
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const publicRouter = require('./routes/public');
 const dashboardRouter = require('./routes/dashboard');
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/auth/github', authRouter); // GitHub OAuth route
+app.use('/public', publicRouter);
 app.use('/dashboard', dashboardRouter);
 
 // Error Handling for 404

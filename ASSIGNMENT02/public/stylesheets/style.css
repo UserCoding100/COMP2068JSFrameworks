@@ -186,6 +186,37 @@ footer {
   font-size: 1.2rem;
 }
 
+/* Public Page Styles */
+.table-container {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+table th {
+  background-color: #2a9d8f;
+  color: #fff;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f4f4f9;
+}
+
+table tbody tr:hover {
+  background-color: #e2f1f8;
+}
+
+
 /* Section and Buttons */
 section {
   text-align: center;
