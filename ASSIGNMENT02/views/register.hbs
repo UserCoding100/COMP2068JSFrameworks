@@ -1,0 +1,32 @@
+{{> header}}
+
+<div class="form-container">
+  <h1>Register</h1>
+  {{#if errors}}
+    <ul class="flash-message">
+      {{#each errors}}
+        <li>{{this.msg}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  {{#if success_msg}}
+    <p class="flash-message success">{{success_msg}}</p>
+  {{/if}}
+  {{#if error_msg}}
+    <p class="flash-message error">{{error_msg}}</p>
+  {{/if}}
+
+  <form action="/register" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <p>Already have an account? <a href="/login">Login here</a></p>
+</div>
+
+{{> footer}}

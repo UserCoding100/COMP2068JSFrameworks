@@ -1,0 +1,322 @@
+/* Global Styles */
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #2a9d8f;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+header ul li {
+  margin-left: 15px;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  background-color: #2a9d8f;
+  color: #fff;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  padding: 20px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #ffce56;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+  padding-top: 10px;
+  font-size: 0.9em;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Welcome Page Section */
+.welcome-section {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  color: #2a9d8f;
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.welcome-buttons {
+  margin-top: 20px;
+}
+
+.welcome-buttons .button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  background-color: #2a9d8f;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.welcome-buttons .button:hover {
+  background-color: #21867a;
+}
+
+.features {
+  margin-top: 30px;
+}
+
+.features h2 {
+  font-size: 1.8rem;
+  color: #264653;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.features ul li {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+}
+
+.features ul li:before {
+  content: '✔';
+  color: #2a9d8f;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Section and Buttons */
+section {
+  text-align: center;
+  margin: 50px;
+}
+
+.buttons .button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #264653;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.buttons .button:hover {
+  background-color: #2a9d8f;
+}
+
+/* Flash Messages */
+.flash-message {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.flash-message.success {
+  color: green;
+}
+
+.flash-message.error {
+  color: red;
+}
+
+/* Form Styles */
+.form-container h1 {
+  text-align: center;
+  color: #2a9d8f;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2a9d8f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #21867a;
+}
+
+p {
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+/* Table Styles */
+.table-container {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Chart Styles */
+.chart-container {
+  margin-top: 30px;
+}
+
+.github-login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.github-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.github-button:hover {
+  background-color: #555;
+}

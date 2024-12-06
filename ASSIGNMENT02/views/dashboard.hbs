@@ -1,0 +1,216 @@
+{{> header}}
+
+<div class="container">
+  <h1>Welcome, {{user.username}}</h1>
+
+  <!-- Flash Messages -->
+  {{#if success_msg}}
+    <p class="flash-message success">{{success_msg}}</p>
+  {{/if}}
+  {{#if error_msg}}
+    <p class="flash-message error">{{error_msg}}</p>
+  {{/if}}
+
+  <!-- Monthly Spending Summary -->
+  <div class="summary">
+    <h3>Monthly Spending: ${{monthlyTotal}}</h3>
+  </div>
+
+  <!-- Add Expense Form -->
+  <div class="form-container">
+    <h2>Add Expense</h2>
+    <form action="/dashboard/add-expense" method="POST">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" required />
+
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" name="amount" step="0.01" required />
+
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Education">Education</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Savings">Savings</option>
+        <option value="Subscriptions">Subscriptions</option>
+      </select>
+
+      <button type="submit">Add Expense</button>
+    </form>
+  </div>
+
+  <!-- Expense Table -->
+  <div class="table-container">
+    <h2>Your Expenses</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each expenses}}
+        <tr>
+          <td>{{this.title}}</td>
+          <td>${{this.amount}}</td>
+          <td>{{this.category}}</td>
+          <td>{{this.date}}</td>
+          <td>
+            <a href="/dashboard/edit/{{this._id}}">Edit</a>
+            <form action="/dashboard/delete/{{this._id}}" method="POST" style="display:inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Chart Section -->
+  <div class="chart-container">
+    <h2>Spending Overview</h2>
+    <canvas id="expenseBarChart"></canvas>
+    <canvas id="expenseLineChart" style="margin-top: 30px;"></canvas>
+    <p id="no-data-message" style="text-align: center; display: none;">No data available</p>
+  </div>
+</div>
+
+{{> footer}}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const fetchChartData = async () => {
+    try {
+      const response = await fetch('/dashboard/chart-data');
+      const result = await response.json();
+
+      if (result.success) {
+        const { categories, amounts, monthlyTrends } = result.data;
+
+        // If no data, show "No Data" message
+        if (categories.length === 0) {
+          document.getElementById('no-data-message').style.display = 'block';
+          return;
+        }
+
+        document.getElementById('no-data-message').style.display = 'none';
+
+        // Bar Chart: Spending by Category
+        const barCtx = document.getElementById('expenseBarChart').getContext('2d');
+        new Chart(barCtx, {
+          type: 'bar',
+          data: {
+            labels: categories,
+            datasets: [{
+              label: 'Spending by Category',
+              data: amounts,
+              backgroundColor: [
+                '#FF6384', // Food
+                '#36A2EB', // Travel
+                '#FFCE56', // Entertainment
+                '#2a9d8f', // Other
+                '#4BC0C0', // Utilities
+                '#9966FF', // Healthcare
+                '#FF9F40', // Education
+                '#6A1B9A', // Shopping
+                '#00C853', // Savings
+                '#D50000', // Subscriptions
+              ],
+              hoverBackgroundColor: [
+                '#FF6384', '#36A2EB', '#FFCE56', '#2a9d8f',
+                '#4BC0C0', '#9966FF', '#FF9F40', '#6A1B9A',
+                '#00C853', '#D50000'
+              ],
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Categories',
+                },
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Total Amount ($)',
+                },
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+        // Line Chart: Monthly Spending Trends
+        const months = [
+          'January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const lineCtx = document.getElementById('expenseLineChart').getContext('2d');
+        new Chart(lineCtx, {
+          type: 'line',
+          data: {
+            labels: months,
+            datasets: [{
+              label: 'Monthly Spending Trends',
+              data: monthlyTrends,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.1,
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+            },
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Months',
+                },
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Total Amount ($)',
+                },
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+
+      } else {
+        console.error('Failed to fetch chart data');
+      }
+    } catch (error) {
+      console.error('Error fetching chart data:', error);
+    }
+  };
+
+  fetchChartData();
+</script>
