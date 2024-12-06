@@ -35,7 +35,7 @@ module.exports = (passport) => {
       {
         clientID: process.env.GITHUB_CLIENT_ID, 
         clientSecret: process.env.GITHUB_CLIENT_SECRET, 
-        callbackURL: '/auth/github/callback', // Callback URL
+        callbackURL: 'https://expense-tracker-ozut.onrender.com/auth/github/callback', // Callback URL
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
