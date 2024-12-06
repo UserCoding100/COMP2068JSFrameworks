@@ -11,8 +11,7 @@
 8. [Additional Feature](#additional-feature)
 9. [Chart.js Integration](#chartjs-integration)
 10. [Deployment](#deployment)
-11. [Live Demo](#live-demo)
-12. [Version Control](#version-control)
+11. [Version Control](#version-control)
 
 ---
 
@@ -136,7 +135,7 @@ The application uses **Chart.js** to provide real-time visual insights into user
 ---
 
 ## **Deployment**
-The project is deployed on **[Render]**. Ensuring that all environment variables are configured for the production environment.
+The project is deployed on Render with the URL: **https://expense-tracker-ozut.onrender.com**. Ensuring that all environment variables are configured for the production environment.
 
 ---
 
