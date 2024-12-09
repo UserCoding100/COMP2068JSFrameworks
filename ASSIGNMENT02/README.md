@@ -141,7 +141,7 @@ The project is deployed on **Render**. Ensuring that all environment variables a
 ---
 
 ## **Live Demo**
-- **URL:** https://expense-tracker-ozut.onrender.com/auth/github/callback
+- **URL:** https://expense-tracker-ozut.onrender.com/
 
 ---
 
